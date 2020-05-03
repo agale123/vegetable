@@ -1,24 +1,37 @@
 <mat-card>
     <!-- TODO(agale): create different images for each pair. -->
-    <img mat-card-image src="assets/broccolicarrot.png">
+    <img mat-card-image
+        src="assets/broccolicarrot.png">
     <mat-card-content>
         <div class="buttons">
-            <button mat-raised-button (click)="handleClick(first)">
+            <button mat-raised-button
+                (click)="handleClick(first)">
                 Vote {{first}}
             </button>
-            <button mat-raised-button (click)="handleClick(second)">
+            <button mat-raised-button
+                (click)="handleClick(second)">
                 Vote {{second}}
             </button>
         </div>
         <div class="progress-bar-outer">
             <div class="progress-bar-inner"
-            [style.width]="percent"
-            [class.right-border]="rightBorder">
+                [style.width]="percent"
+                [class.right-border]="rightBorder">
                 {{percent}}
             </div>
         </div>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-button>Share on Facebook</button>
+        <div class="fb-share-button"
+            data-href="https://vegetable-276002.firebaseapp.com/matchup?first=broccoli&second=carrot"
+            data-layout="button"
+            data-size="large"><a target="_blank"
+                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvegetable-276002.firebaseapp.com%2Fmatchup%3Ffirst%3Dbroccoli%26second%3Dcarrot&src=sdkpreparse"
+                class="fb-xfbml-parse-ignore">Share</a></div>
+
+        <a class="twitter-share-button"
+            href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fvegetable-276002.firebaseapp.com%2Fmatchup%3Ffirst%3Dbroccoli%26second%3Dcarrot"
+            data-size="large">
+            Tweet</a>
     </mat-card-actions>
 </mat-card>

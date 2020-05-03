@@ -1,15 +1,81 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>Vegetable</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Elk Run Farm Fundraiser</title>
+    <base href="/">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+    <link rel="icon"
+        type="image/x-icon"
+        href="favicon.ico">
+    <link
+        href="https://fonts.googleapis.com/css?family=Raleway:300,400,500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+    <meta property="og:title"
+        content="Elk Run Farm Fundraiser">
+    <meta property="twitter:title"
+        content="Elk Run Farm Fundraiser">
+    <meta property="og:description"
+        content="Vote now for your favorite vegetables and donate to support Elk Run Farm!">
+    <meta property="twitter:description"
+        content="Vote now for your favorite vegetables and donate to support Elk Run Farm!">
+    <meta property="og:type"
+        content="website">
+    <meta name="twitter:card"
+        content="summary_large_image">
+
+    <script async
+        src="https://platform.twitter.com/widgets.js"
+        charset="utf-8"></script>
+
+    <script>
+        function writeMeta(attr, name, value) {
+            var link = document.createElement('meta');
+            link.setAttribute(attr, name);
+            link.content = value;
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+
+        writeMeta('name', 'og:url', document.location);
+
+        var url = new URL(document.location.href);
+        if (url.search.length >= 0) {
+            var search = url.search.replace('%20', '');
+
+            var firstMatch = search.match(/first=([a-z]*)/) || [];
+            var secondMatch = search.match(/second=([a-z]*)/) || [];
+            var first = firstMatch.length >= 2 ? firstMatch[1] : undefined;
+            var second = secondMatch.length >= 2 ? secondMatch[1] : undefined;
+            if (first && second) {
+                writeMeta('name', 'og:image', 'https://vegetable-276002.firebaseapp.com/assets/' + first + second + '.png');
+                writeMeta('property', 'twitter:image', 'https://vegetable-276002.firebaseapp.com/assets/' + first + second + '.png');
+            } else {
+                writeMeta('name', 'og:image', 'https://vegetable-276002.firebaseapp.com/assets/round1.jpg');
+                writeMeta('property', 'twitter:image', 'https://vegetable-276002.firebaseapp.com/assets/round1.jpg');
+            }
+        } else {
+            writeMeta('name', 'og:image', 'https://vegetable-276002.firebaseapp.com/assets/round1.jpg');
+            writeMeta('property', 'twitter:image', 'https://vegetable-276002.firebaseapp.com/assets/round1.jpg');
+        }
+
+    </script>
 </head>
+
 <body class="mat-typography">
-  <app-root></app-root>
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    <app-root></app-root>
 </body>
+
 </html>

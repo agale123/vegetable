@@ -27,3 +27,13 @@ mat-card {
 .progress-bar-inner.right-border {
     border-radius: 12px;
 }
+
+mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+.fb-share-button {
+    padding-right: 8px;
+}
