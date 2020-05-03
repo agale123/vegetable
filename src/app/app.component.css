@@ -1,0 +1,14 @@
+.header {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nav-bar {
+    text-align: center;
+}
+
+mat-divider {
+    width: 300px;
+}

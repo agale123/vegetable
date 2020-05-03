@@ -1,0 +1,29 @@
+mat-card {
+    width: 300px;
+    margin: 16px;
+}
+
+.buttons {
+    display:flex;
+    justify-content: space-between;
+    margin: 16px;
+}
+
+.progress-bar-outer {
+    background-color:#951A5C;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.progress-bar-inner {
+    background-color: #5A5A5A;
+    height: 24px;
+    border-bottom-left-radius: 12px;
+    border-top-left-radius: 12px;
+    color: white;
+    text-align: center;
+}
+
+.progress-bar-inner.right-border {
+    border-radius: 12px;
+}
