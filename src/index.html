@@ -23,46 +23,11 @@
         content="Vote now for your favorite vegetables and donate to support Elk Run Farm!">
     <meta property="twitter:description"
         content="Vote now for your favorite vegetables and donate to support Elk Run Farm!">
-    <meta property="og:type"
-        content="website">
-
-    <script async
-        src="https://platform.twitter.com/widgets.js"
-        charset="utf-8"></script>
-
-    <script>
-        function writeMeta(attr, name, value) {
-            var link = document.createElement('meta');
-            link.setAttribute(attr, name);
-            link.content = value;
-            document.getElementsByTagName('head')[0].appendChild(link);
-        }
-
-        writeMeta('name', 'og:url', document.location);
-
-        var url = new URL(document.location.href);
-        if (url.search.length >= 0) {
-            var search = url.search.replace('%20', '');
-
-            var firstMatch = search.match(/first=([a-z]*)/) || [];
-            var secondMatch = search.match(/second=([a-z]*)/) || [];
-            var first = firstMatch.length >= 2 ? firstMatch[1] : undefined;
-            var second = secondMatch.length >= 2 ? secondMatch[1] : undefined;
-            if (first && second) {
-                writeMeta('name', 'og:image', 'https://vegetable-276002.firebaseapp.com/assets/' + first + second + '.png');
-                writeMeta('name', 'twitter:image', 'https://vegetable-276002.firebaseapp.com/assets/' + first + second + '.png');
-            } else {
-                writeMeta('name', 'og:image', 'https://vegetable-276002.firebaseapp.com/assets/round1.jpg');
-                writeMeta('name', 'twitter:image', 'https://vegetable-276002.firebaseapp.com/assets/round1.jpg');
-            }
-        } else {
-            writeMeta('name', 'og:image', 'https://vegetable-276002.firebaseapp.com/assets/round1.jpg');
-            writeMeta('name', 'twitter:image', 'https://vegetable-276002.firebaseapp.com/assets/round1.jpg');
-        }
-
-        writeMeta('name', 'twitter:card', 'summary_large_image');
-
-    </script>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vegetable-276002.firebaseapp.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://vegetable-276002.firebaseapp.com/assets/elkrun-rgb.jpg">
+    <meta name="twitter:image" content="https://vegetable-276002.firebaseapp.com/assets/elkrun-rgb.jpg">
 </head>
 
 <body class="mat-typography">

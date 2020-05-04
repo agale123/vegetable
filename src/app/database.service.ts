@@ -55,6 +55,9 @@ export class DatabaseService {
             .pipe(
                 map(values => {
                     const user = this.auth.getCurrentUser();
+                    if (!user) {
+                        return [];
+                    }
                     const toReturn = [];
                     for (let value of values) {
                         if (value.user === user.uid) {
