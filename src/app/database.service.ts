@@ -1,7 +1,7 @@
 import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable, combineLatest } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
 export interface Entry {
@@ -30,29 +30,54 @@ export class DatabaseService {
 
     votes: Observable<{ [key: string]: number }>;
 
-    constructor(private readonly firestore: AngularFirestore,
+    userFavorites: Observable<string[]>;
+
+    constructor(
+        private readonly firestore: AngularFirestore,
         private readonly auth: AuthService) {
-        this.votes = this.firestore.collection<Entry>(ROUND).valueChanges().pipe(map(values => {
-            const toReturn = {};
-            for (let value of values) {
-                if (value.favorite in toReturn) {
-                    toReturn[value.favorite] = toReturn[value.favorite] + 1;
-                } else {
-                    toReturn[value.favorite] = 1;
+
+        this.votes = this.firestore.collection<Entry>(ROUND).valueChanges().pipe(
+            map(values => {
+                const toReturn = {};
+                for (let value of values) {
+                    if (value.favorite in toReturn) {
+                        toReturn[value.favorite] = toReturn[value.favorite] + 1;
+                    } else {
+                        toReturn[value.favorite] = 1;
+                    }
                 }
-            }
-            return toReturn;
-        }),
+                return toReturn;
+            }),
             shareReplay(1),
         );
+
+        this.userFavorites = this.firestore.collection<Entry>(ROUND).valueChanges()
+            .pipe(
+                map(values => {
+                    const user = this.auth.getCurrentUser();
+                    const toReturn = [];
+                    for (let value of values) {
+                        if (value.user === user.uid) {
+                            toReturn.push(value.favorite);
+                        }
+                    }
+                    return toReturn;
+                }),
+                shareReplay(1));
     }
 
     vote(matchup: string, favorite: string) {
         if (!this.auth.isUserSignedIn()) {
-            // Prompt for login.
-            this.auth.signIn();
-            return false;
+            this.auth.signIn().then(() => {
+                this.voteInternal(matchup, favorite)
+            });
+        } else {
+            this.voteInternal(matchup, favorite);
         }
+
+    }
+
+    private voteInternal(matchup: string, favorite: string) {
         const user = this.auth.user!.uid;
         const matchVegetable = ref => {
             return ref.where('matchup', '==', matchup)
@@ -75,6 +100,10 @@ export class DatabaseService {
 
     getVotes() {
         return this.votes;
+    }
+
+    getUserFavorites() {
+        return this.userFavorites;
     }
 
     isValidMatchup(first: string, second: string) {

@@ -21,12 +21,7 @@ export class AuthService {
     }
 
     signIn() {
-        // TODO(agale): Look into whether anonymous auth is sufficient
-        this.auth.signInWithPopup(new auth.GoogleAuthProvider());
-    }
-
-    signOut() {
-        this.auth.signOut();
+        return this.auth.signInAnonymously();
     }
 
     getCurrentUser() {

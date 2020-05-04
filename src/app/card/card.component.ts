@@ -1,7 +1,7 @@
 import { DatabaseService } from './../database.service';
 import { Component, Input, OnDestroy } from '@angular/core';
-import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { takeUntil, map } from 'rxjs/operators';
+import { Subject, Observable } from 'rxjs';
 
 @Component({
     selector: 'app-card',
@@ -16,13 +16,25 @@ export class CardComponent implements OnDestroy {
     percent: string;
     rightBorder = false;
 
+    readonly firstColor: Observable<string>;
+    readonly secondColor: Observable<string>;
+
     private onDestroy = new Subject<boolean>();
 
     constructor(private readonly database: DatabaseService) {
         this.database.getVotes().pipe(takeUntil(this.onDestroy))
-        .subscribe(votes => {
-            this.updatePercent(votes[this.first] || 0, votes[this.second] || 0);
-        })
+            .subscribe(votes => {
+                this.updatePercent(votes[this.first] || 0, votes[this.second] || 0);
+            })
+
+        this.firstColor = this.database.getUserFavorites()
+            .pipe(map(favorites => {
+                return favorites.includes(this.first) ? 'primary' : '';
+            }));
+        this.secondColor = this.database.getUserFavorites()
+            .pipe(map(favorites => {
+                return favorites.includes(this.second) ? 'primary' : '';
+            }));
     }
 
     ngOnDestroy(): void {

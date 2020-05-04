@@ -5,10 +5,12 @@
     <mat-card-content>
         <div class="buttons">
             <button mat-raised-button
+                [color]="firstColor | async"
                 (click)="handleClick(first)">
                 Vote {{first}}
             </button>
             <button mat-raised-button
+                [color]="secondColor | async"
                 (click)="handleClick(second)">
                 Vote {{second}}
             </button>
@@ -29,9 +31,11 @@
                 href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvegetable-276002.firebaseapp.com%2Fmatchup%3Ffirst%3Dbroccoli%26second%3Dcarrot&src=sdkpreparse"
                 class="fb-xfbml-parse-ignore">Share</a></div>
 
-        <a class="twitter-share-button"
-            href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fvegetable-276002.firebaseapp.com%2Fmatchup%3Ffirst%3Dbroccoli%26second%3Dcarrot"
-            data-size="large">
-            Tweet</a>
+        <a class="donate"
+            mat-raised-button
+            color="primary"
+            href="https://secure.givelively.org/donate/south-king-county-food-coalition/elk-run-farm-virtual-fundraiser">
+            Donate
+        </a>
     </mat-card-actions>
 </mat-card>

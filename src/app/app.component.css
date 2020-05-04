@@ -5,6 +5,16 @@
     flex-direction: column;
 }
 
+.intro {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.intro p, .intro img {
+    max-width: 600px;
+}
+
 .nav-bar {
     text-align: center;
 }

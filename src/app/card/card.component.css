@@ -37,3 +37,13 @@ mat-card-actions {
 .fb-share-button {
     padding-right: 8px;
 }
+
+.donate {
+    height: 28px;
+    line-height: 28px;
+    background-color: #5A5A5A;
+}
+
+.donate ::ng-deep .mat-button-wrapper {
+    line-height: 28px;
+}
