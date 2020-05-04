@@ -40,8 +40,12 @@ export class CardComponent implements OnDestroy {
         }
     }
 
+    getMatchup() {
+        return `${this.first.trim()}${this.second.trim()}`;
+    }
+
     handleClick(vegetable: string) {
-        this.database.vote(vegetable);
+        this.database.vote(this.getMatchup(), vegetable);
     }
 
 }

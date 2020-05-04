@@ -1,11 +1,13 @@
+import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, shareReplay } from 'rxjs/operators';
 
 export interface Entry {
-    vegetable: string;
-    votes: number;
+    matchup: string;
+    user: string;
+    favorite: string;
 }
 
 export const MATCHUPS = [
@@ -28,28 +30,45 @@ export class DatabaseService {
 
     votes: Observable<{ [key: string]: number }>;
 
-    constructor(private readonly firestore: AngularFirestore) {
+    constructor(private readonly firestore: AngularFirestore,
+        private readonly auth: AuthService) {
         this.votes = this.firestore.collection<Entry>(ROUND).valueChanges().pipe(map(values => {
             const toReturn = {};
             for (let value of values) {
-                toReturn[value.vegetable] = value.votes;
+                if (value.favorite in toReturn) {
+                    toReturn[value.favorite] = toReturn[value.favorite] + 1;
+                } else {
+                    toReturn[value.favorite] = 1;
+                }
             }
             return toReturn;
-        }));
+        }),
+            shareReplay(1),
+        );
     }
 
-    vote(vegetable: string) {
+    vote(matchup: string, favorite: string) {
+        if (!this.auth.isUserSignedIn()) {
+            // Prompt for login.
+            this.auth.signIn();
+            return false;
+        }
+        const user = this.auth.user!.uid;
         const matchVegetable = ref => {
-            return ref.where('vegetable', '==', vegetable);
+            return ref.where('matchup', '==', matchup)
+                .where('user', '==', user);
         }
         this.firestore.collection<Entry>(ROUND, matchVegetable).get()
             .subscribe(response => {
                 // TODO(agale): Lock down permissions for writes
                 if (response.size >= 1) {
-                    const votes = (response.docs[0].get('votes') || 0) + 1;
-                    this.firestore.doc(response.docs[0].ref).update({ votes });
+                    // User has already voted so change the vote.
+                    this.firestore.doc(response.docs[0].ref)
+                        .update({ favorite });
                 } else {
-                    this.firestore.collection(ROUND).add({ vegetable, votes: 1 });
+                    // User hasn't voted yet.
+                    this.firestore.collection(ROUND)
+                        .add({ matchup, user, favorite });
                 }
             })
     }

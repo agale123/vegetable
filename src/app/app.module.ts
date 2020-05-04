@@ -13,6 +13,7 @@ import { CardComponent } from './card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LivestreamComponent } from './livestream/livestream.component';
 import { MatchupComponent } from './matchup/matchup.component';
 import { PrelimsComponent } from './prelims/prelims.component';
@@ -29,6 +30,7 @@ import { PrelimsComponent } from './prelims/prelims.component';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     AngularFirestoreModule,
     AppRoutingModule,
     MatCardModule,
