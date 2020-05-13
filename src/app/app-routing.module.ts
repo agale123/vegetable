@@ -8,10 +8,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
     {path: 'livestream', component: LivestreamComponent},
-    {path: 'matchup', component: MatchupComponent},
+    // {path: 'matchup', component: MatchupComponent},
     {path: 'prelims', component: PrelimsComponent},
     {path: 'knockout', component: HomeComponent},
-    {path: '**', component: HomeComponent}
+    // TODO(agale): Redirect to knockout when that launches.
+    {path: '**', redirectTo: 'prelims'}
 ];
 
 @NgModule({

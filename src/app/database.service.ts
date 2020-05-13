@@ -88,7 +88,6 @@ export class DatabaseService {
         }
         this.firestore.collection<Entry>(ROUND, matchVegetable).get()
             .subscribe(response => {
-                // TODO(agale): Lock down permissions for writes
                 if (response.size >= 1) {
                     // User has already voted so change the vote.
                     this.firestore.doc(response.docs[0].ref)

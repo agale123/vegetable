@@ -1,14 +1,30 @@
 <div class="intro">
+    <p>Will tomatoes beet carrots? That’s the big question, and you get to
+        compete for the answer. Vote Elk Run Farm in our Vegetable Bracket
+        Corn-ament, to see which vegetable is the ultimate champion! Support
+        your favorite vegetables and see how your taste stacks up with the rest
+        of the community. Bracket lineups and updates will be announced during
+        our weekly Facebook live streams (with link), where you’ll get a
+        firsthand look at how Elk Run Farm grows your favorite veggie champs.
+        Get to know our education, restoration, and farming projects, which
+        support South King County with healthy food access. </p>
+    <br>
+    <!-- Begin Give Lively Fundraising Widget -->
+
+    <div id="give-lively-widget"
+        class="gl-simple-donation-widget"></div>
+    <!-- End Give Lively Fundraising Widget -->
+</div>
+
+<div class="image">
     <!-- TODO(agale): Update this image. -->
     <img src="assets/round1.jpg">
     <br>
-    <br>
-
     <h2>Vote for your favorite vegetables:</h2>
 </div>
 
 <div class="cards">
     <app-card *ngFor="let card of cards"
-    [first]="card.first"
-    [second]="card.second"></app-card>
+        [first]="card.first"
+        [second]="card.second"></app-card>
 </div>
