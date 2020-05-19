@@ -13,6 +13,12 @@
     padding: 16px;
 }
 
+@media (max-width: 650px) {
+    .intro {
+        flex-direction: column;
+    }
+}
+
 .intro p {
     padding: 16px;
 }

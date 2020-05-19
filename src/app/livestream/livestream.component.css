@@ -8,5 +8,12 @@
 }
 
 .intro p {
-    padding: 16px;
+    margin: 16px;
+}
+
+@media (max-width: 650px) {
+    .intro {
+        align-items: normal;
+        flex-direction: column;
+    }
 }
