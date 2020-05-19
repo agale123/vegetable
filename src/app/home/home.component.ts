@@ -8,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
     readonly cards = [
-        {first: 'broccoli', second: 'carrot'},
-        {first: 'tomato', second: 'potato'},
-        {first: 'cucumber', second: 'spinach'},
-        {first: 'cauliflower', second: 'onion'},
-        {first: 'beet', second: 'squash'},
-        {first: 'radish', second: 'pepper'},
-        {first: 'artichoke', second: 'corn'},
-        {first: 'lettuce', second: 'green bean'},
+        {first: 'beets', second: 'bok choy'},
+        {first: 'broccoli', second: 'cabbage'},
+        {first: 'carrots', second: 'corn'},
+        {first: 'cucumber', second: 'green beans'},
+        {first: 'green onions', second: 'kale'},
+        {first: 'lettuce', second: 'onions'},
+        {first: 'potatoes', second: 'snap peas'},
+        {first: 'spinach', second: 'sweet peppers'},
     ];
 
     constructor() { }

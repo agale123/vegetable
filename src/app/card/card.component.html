@@ -1,7 +1,9 @@
 <mat-card>
     <!-- TODO(agale): create different images for each pair. -->
-    <img mat-card-image
-        src="assets/broccolicarrot.png">
+    <div class="image-container" mat-card-image>
+        <img class="left-image" [src]="getLeftImage()">
+        <img class="right-image" [src]="getRightImage()">
+    </div>
     <mat-card-content>
         <div class="buttons">
             <button mat-raised-button

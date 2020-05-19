@@ -25,3 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Deploy app
 
 To deploy the app, run `ng build --prod` to build the Angular project and then run `firebase deploy --project vegetable-276002`.
+
+## Firebase auth issues
+
+If there are issues with it not being recognized, try `firebase login --reauth`.

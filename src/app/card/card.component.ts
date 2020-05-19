@@ -37,6 +37,14 @@ export class CardComponent implements OnDestroy {
             }));
     }
 
+    getLeftImage() {
+        return `assets/${this.first.replace(' ', '')}.jpg`;
+    }
+
+    getRightImage() {
+        return `assets/${this.second.replace(' ', '')}.jpg`;
+    }
+
     ngOnDestroy(): void {
         this.onDestroy.next(true);
     }

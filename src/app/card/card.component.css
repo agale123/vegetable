@@ -3,10 +3,29 @@ mat-card {
     margin: 16px;
 }
 
+.image-container {
+    height: 180px;
+}
+
+.left-image {
+    width: 330px;
+    height: 180px;
+    position: absolute;
+    clip-path: polygon(0 0, 60% 0, 40% 100%, 0 100%);
+}
+
+.right-image {
+    width: 330px;
+    height: 180px;
+    position: absolute;
+    left: 2px;
+    clip-path: polygon(60% 0, 100% 0, 100% 100%, 40% 100%);
+}
+
 .buttons {
     display:flex;
     justify-content: space-between;
-    margin: 16px;
+    margin: 16px 0;
 }
 
 .progress-bar-outer {
