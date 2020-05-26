@@ -21,7 +21,7 @@ export const MATCHUPS = [
     { first: 'lettuce', second: 'green bean' },
 ];
 
-export const ROUND = 'round1';
+export const ROUND = 'round2';
 
 @Injectable({
     providedIn: 'root'

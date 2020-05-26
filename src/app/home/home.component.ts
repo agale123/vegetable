@@ -8,14 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
     readonly cards = [
-        {first: 'beets', second: 'carrots'},
-        {first: 'potatoes', second: 'pumpkin'},
-        {first: 'tomatoes', second: 'sweet peppers'},
-        {first: 'melon', second: 'corn'},
-        {first: 'snap peas', second: 'green beans'},
-        {first: 'cucumber', second: 'green onions'},
-        {first: 'broccoli', second: 'cauliflower'},
-        {first: 'lettuce', second: 'leeks'},
+        {first: 'potatoes', second: 'carrots'},
+        {first: 'tomatoes', second: 'corn'},
+        {first: 'snap peas', second: 'cucumber'},
+        {first: 'broccoli', second: 'lettuce'},
     ];
 
     readonly votingOpen = true;
