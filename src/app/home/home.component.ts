@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
         {first: 'lettuce', second: 'leeks'},
     ];
 
-    readonly votingOpen = false;
+    readonly votingOpen = true;
 
     constructor() { }
 
