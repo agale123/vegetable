@@ -17,13 +17,13 @@
 </div>
 
 <div class="image">
-    <!-- TODO(agale): Update this image. -->
     <img src="assets/round1.jpg">
     <br>
-    <h2>Vote for your favorite vegetables:</h2>
+    <h2 *ngIf="votingOpen">Vote for your favorite vegetables:</h2>
+    <h2 *ngIf="!votingOpen">This round of voting is closed. Check back on Wednesday at 1PM for the next round.</h2>
 </div>
 
-<div class="cards">
+<div *ngIf="votingOpen" class="cards">
     <app-card *ngFor="let card of cards"
         [first]="card.first"
         [second]="card.second"></app-card>

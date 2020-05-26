@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
         {first: 'lettuce', second: 'leeks'},
     ];
 
+    readonly votingOpen = false;
+
     constructor() { }
 
     ngOnInit(): void {
