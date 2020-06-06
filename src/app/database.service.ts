@@ -11,11 +11,10 @@ export interface Entry {
 }
 
 export const MATCHUPS = [
-    {second: 'carrots', first: 'tomatoes'},
-    {second: 'snap peas', first: 'broccoli'},
+    {first: 'snap peas', second: 'carrots'},
 ];
 
-export const ROUND = 'round3';
+export const ROUND = 'round4';
 
 @Injectable({
     providedIn: 'root'

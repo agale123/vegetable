@@ -8,8 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
     readonly cards = [
-        {second: 'carrots', first: 'tomatoes'},
-        {second: 'snap peas', first: 'broccoli'},
+        {first: 'snap peas', second: 'carrots'},
     ];
 
     readonly votingOpen = true;
@@ -18,5 +17,4 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
     }
-
 }
