@@ -7,6 +7,8 @@ Coalition to create an interactive bracket site where vegetables compete
 to see which is everyone's favorite. This was part of a virtual fundraiser
 with the goal of driving engagement with supporters and bringing in donations.
 
+The site was hosted here: https://elkrunfundraiser.skcfc.org/
+
 ## Project
 
 The site features a bracket showcasing the current state of the competition.
