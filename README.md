@@ -11,13 +11,13 @@ with the goal of driving engagement with supporters and bringing in donations.
 
 The site features a bracket showcasing the current state of the competition.
 
-<img src="https://raw.githubusercontent.com/agale123/vegetable-bracket/master/bracket.jpg" width="500px">
+<img src="https://raw.githubusercontent.com/agale123/vegetable-bracket/master/bracket.png" width="500px">
 
 While the knockout rounds were open, cards were populated with each matchup.
 When you vote, you can see the current results. These cards highlight
 pictures of vegetables grown at Elk Run Farm.
 
-<img src="https://raw.githubusercontent.com/agale123/vegetable-bracket/master/knockout.jpg" width="500px">
+<img src="https://raw.githubusercontent.com/agale123/vegetable-bracket/master/knockout.png" width="500px">
 
 
 ## Deploying the site
